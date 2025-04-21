@@ -1,7 +1,7 @@
 From ce0ff7395188490934fb1b67446b6a351f22a2b4 Mon Sep 17 00:00:00 2001
 From: rifsxd <rifat.44.azad.rifs@gmail.com>
 Date: Tue, 25 Feb 2025 20:10:43 +0600
-Subject: [PATCH] kernel: patch susfs v1.5.5 to KernelSU-Next v1.0.5
+Subject: [PATCH] kernel: patch susfs v1.5.5 to KernelSU
 
 ---
  .gitignore               |   3 +
