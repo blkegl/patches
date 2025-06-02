@@ -1,6 +1,6 @@
-diff -Nur /mnt/data/kernel-original/KernelSU/kernel/core_hook.c /mnt/data/kernel-patched/KernelSU/kernel/core_hook.c
---- /mnt/data/kernel-original/KernelSU/kernel/core_hook.c	2025-06-02 08:25:21.305303796 +0000
-+++ /mnt/data/kernel-patched/KernelSU/kernel/core_hook.c	2025-06-02 08:25:21.303289028 +0000
+diff -Nur /mnt/data/kernel-original-2/KernelSU/kernel/core_hook.c /mnt/data/kernel-patched-2/KernelSU/kernel/core_hook.c
+--- /mnt/data/kernel-original-2/KernelSU/kernel/core_hook.c	2025-06-02 09:31:22.589068617 +0000
++++ /mnt/data/kernel-patched-2/KernelSU/kernel/core_hook.c	2025-06-02 09:31:22.588700535 +0000
 @@ -0,0 +1,30 @@
 +--- kernel/core_hook.c
 ++++ kernel/core_hook.c
@@ -32,9 +32,9 @@ diff -Nur /mnt/data/kernel-original/KernelSU/kernel/core_hook.c /mnt/data/kernel
 + 
 + 	return 0;
 + }
-diff -Nur /mnt/data/kernel-original/fs/Makefile /mnt/data/kernel-patched/fs/Makefile
---- /mnt/data/kernel-original/fs/Makefile	2025-06-02 08:25:21.306875398 +0000
-+++ /mnt/data/kernel-patched/fs/Makefile	2025-06-02 08:25:21.305894156 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/Makefile /mnt/data/kernel-patched-2/fs/Makefile
+--- /mnt/data/kernel-original-2/fs/Makefile	2025-06-02 09:31:22.589586613 +0000
++++ /mnt/data/kernel-patched-2/fs/Makefile	2025-06-02 09:31:22.589379172 +0000
 @@ -0,0 +1,11 @@
 +--- fs/Makefile
 ++++ fs/Makefile
@@ -47,9 +47,9 @@ diff -Nur /mnt/data/kernel-original/fs/Makefile /mnt/data/kernel-patched/fs/Make
 + ifeq ($(CONFIG_BLOCK),y)
 + obj-y +=	buffer.o direct-io.o mpage.o
 + else
-diff -Nur /mnt/data/kernel-original/fs/dcache.c /mnt/data/kernel-patched/fs/dcache.c
---- /mnt/data/kernel-original/fs/dcache.c	2025-06-02 08:25:21.308384659 +0000
-+++ /mnt/data/kernel-patched/fs/dcache.c	2025-06-02 08:25:21.308037683 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/dcache.c /mnt/data/kernel-patched-2/fs/dcache.c
+--- /mnt/data/kernel-original-2/fs/dcache.c	2025-06-02 09:31:22.590959656 +0000
++++ /mnt/data/kernel-patched-2/fs/dcache.c	2025-06-02 09:31:22.590632988 +0000
 @@ -0,0 +1,38 @@
 +--- fs/dcache.c
 ++++ fs/dcache.c
@@ -89,9 +89,9 @@ diff -Nur /mnt/data/kernel-original/fs/dcache.c /mnt/data/kernel-patched/fs/dcac
 + 		spin_lock(&dentry->d_lock);
 + 		if (dentry->d_parent != parent)
 + 			goto next;
-diff -Nur /mnt/data/kernel-original/fs/devpts/inode.c /mnt/data/kernel-patched/fs/devpts/inode.c
---- /mnt/data/kernel-original/fs/devpts/inode.c	2025-06-02 08:25:21.322044907 +0000
-+++ /mnt/data/kernel-patched/fs/devpts/inode.c	2025-06-02 08:25:21.321556185 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/devpts/inode.c /mnt/data/kernel-patched-2/fs/devpts/inode.c
+--- /mnt/data/kernel-original-2/fs/devpts/inode.c	2025-06-02 09:31:22.602792705 +0000
++++ /mnt/data/kernel-patched-2/fs/devpts/inode.c	2025-06-02 09:31:22.602465042 +0000
 @@ -0,0 +1,27 @@
 +--- fs/devpts/inode.c
 ++++ fs/devpts/inode.c
@@ -120,9 +120,9 @@ diff -Nur /mnt/data/kernel-original/fs/devpts/inode.c /mnt/data/kernel-patched/f
 + 	if (dentry->d_sb->s_magic != DEVPTS_SUPER_MAGIC)
 + 		return NULL;
 + 	return dentry->d_fsdata;
-diff -Nur /mnt/data/kernel-original/fs/exec.c /mnt/data/kernel-patched/fs/exec.c
---- /mnt/data/kernel-original/fs/exec.c	2025-06-02 08:25:21.309470909 +0000
-+++ /mnt/data/kernel-patched/fs/exec.c	2025-06-02 08:25:21.309196699 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/exec.c /mnt/data/kernel-patched-2/fs/exec.c
+--- /mnt/data/kernel-original-2/fs/exec.c	2025-06-02 09:31:22.593996339 +0000
++++ /mnt/data/kernel-patched-2/fs/exec.c	2025-06-02 09:31:22.593473755 +0000
 @@ -0,0 +1,27 @@
 +--- fs/exec.c
 ++++ fs/exec.c
@@ -151,9 +151,9 @@ diff -Nur /mnt/data/kernel-original/fs/exec.c /mnt/data/kernel-patched/fs/exec.c
 + 	/*
 + 	 * We move the actual failure in case of RLIMIT_NPROC excess from
 + 	 * set*uid() to execve() because too many poorly written programs
-diff -Nur /mnt/data/kernel-original/fs/namei.c /mnt/data/kernel-patched/fs/namei.c
---- /mnt/data/kernel-original/fs/namei.c	2025-06-02 08:25:21.310589279 +0000
-+++ /mnt/data/kernel-patched/fs/namei.c	2025-06-02 08:25:21.310288654 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/namei.c /mnt/data/kernel-patched-2/fs/namei.c
+--- /mnt/data/kernel-original-2/fs/namei.c	2025-06-02 09:31:22.595040736 +0000
++++ /mnt/data/kernel-patched-2/fs/namei.c	2025-06-02 09:31:22.594485039 +0000
 @@ -0,0 +1,259 @@
 +--- fs/namei.c
 ++++ fs/namei.c
@@ -414,133 +414,13 @@ diff -Nur /mnt/data/kernel-original/fs/namei.c /mnt/data/kernel-patched/fs/namei
 + 	restore_nameidata();
 + 	return filp;
 + }
-diff -Nur /mnt/data/kernel-original/fs/namespace.c /mnt/data/kernel-patched/fs/namespace.c
---- /mnt/data/kernel-original/fs/namespace.c	2025-06-02 08:25:21.312077577 +0000
-+++ /mnt/data/kernel-patched/fs/namespace.c	2025-06-02 08:25:21.311598410 +0000
-@@ -0,0 +1,400 @@
+diff -Nur /mnt/data/kernel-original-2/fs/namespace.c /mnt/data/kernel-patched-2/fs/namespace.c
+--- /mnt/data/kernel-original-2/fs/namespace.c	2025-06-02 09:31:22.595812606 +0000
++++ /mnt/data/kernel-patched-2/fs/namespace.c	2025-06-02 09:31:22.595442350 +0000
+@@ -0,0 +1,110 @@
 +--- fs/namespace.c
 ++++ fs/namespace.c
-+@@ -32,10 +32,36 @@
-+ #include <linux/fs_context.h>
-+ #include <linux/shmem_fs.h>
-+ #include <linux/mnt_idmapping.h>
-++#if defined(CONFIG_KSU_SUSFS_SUS_MOUNT) || defined(CONFIG_KSU_SUSFS_TRY_UMOUNT)
-++#include <linux/susfs_def.h>
-++#endif
-+ 
-+ #include "pnode.h"
-+ #include "internal.h"
-+ 
-++#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
-++extern bool susfs_is_current_ksu_domain(void);
-++extern bool susfs_is_current_zygote_domain(void);
-++
-++static DEFINE_IDA(susfs_mnt_id_ida);
-++static DEFINE_IDA(susfs_mnt_group_ida);
-++
-++#define CL_COPY_MNT_NS BIT(25) /* used by copy_mnt_ns() */
-++#endif
-++
-++#ifdef CONFIG_KSU_SUSFS_AUTO_ADD_SUS_KSU_DEFAULT_MOUNT
-++extern void susfs_auto_add_sus_ksu_default_mount(const char __user *to_pathname);
-++bool susfs_is_auto_add_sus_ksu_default_mount_enabled = true;
-++#endif
-++#ifdef CONFIG_KSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT
-++extern int susfs_auto_add_sus_bind_mount(const char *pathname, struct path *path_target);
-++bool susfs_is_auto_add_sus_bind_mount_enabled = true;
-++#endif
-++#ifdef CONFIG_KSU_SUSFS_AUTO_ADD_TRY_UMOUNT_FOR_BIND_MOUNT
-++extern void susfs_auto_add_try_umount_for_bind_mount(struct path *path);
-++bool susfs_is_auto_add_try_umount_for_bind_mount_enabled = true;
-++#endif
-++
-+ /* Maximum number of mounts in a mount namespace */
-+ unsigned int sysctl_mount_max __read_mostly = 100000;
-+ 
-+@@ -123,6 +149,18 @@ static inline struct hlist_head *mp_hash(struct dentry *dentry)
-+ 	return &mountpoint_hashtable[tmp & mp_hash_mask];
-+ }
-+ 
-++#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
-++// Our own mnt_alloc_id() that assigns mnt_id starting from DEFAULT_SUS_MNT_ID
-++static int susfs_mnt_alloc_id(struct mount *mnt)
-++{
-++	int res = ida_alloc_min(&susfs_mnt_id_ida, DEFAULT_SUS_MNT_ID, GFP_KERNEL);
-++
-++	if (res < 0)
-++		return res;
-++	mnt->mnt_id = res;
-++	return 0;
-++}
-++#endif
-+ static int mnt_alloc_id(struct mount *mnt)
-+ {
-+ 	int res = ida_alloc(&mnt_id_ida, GFP_KERNEL);
-+@@ -135,6 +173,26 @@ static int mnt_alloc_id(struct mount *mnt)
-+ 
-+ static void mnt_free_id(struct mount *mnt)
-+ {
-++#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
-++	// We should first check the 'mnt->mnt.susfs_mnt_id_backup', see if it is DEFAULT_SUS_MNT_ID_FOR_KSU_PROC_UNSHARE
-++	// if so, these mnt_id were not assigned by mnt_alloc_id() so we don't need to free it.
-++	if (unlikely(mnt->mnt.susfs_mnt_id_backup == DEFAULT_SUS_MNT_ID_FOR_KSU_PROC_UNSHARE)) {
-++		return;
-++	}
-++	// Now we can check if its mnt_id is sus
-++	if (unlikely(mnt->mnt_id >= DEFAULT_SUS_MNT_ID)) {
-++		ida_free(&susfs_mnt_id_ida, mnt->mnt_id);
-++		return;
-++	}
-++	// Lastly if 'mnt->mnt.susfs_mnt_id_backup' is not 0, then it contains a backup origin mnt_id
-++	// so we free it in the original way
-++	if (likely(mnt->mnt.susfs_mnt_id_backup)) {
-++		// If mnt->mnt.susfs_mnt_id_backup is not zero, it means mnt->mnt_id is spoofed,
-++		// so here we return the original mnt_id for being freed.
-++		ida_free(&mnt_id_ida, mnt->mnt.susfs_mnt_id_backup);
-++		return;
-++	}
-++#endif
-+ 	ida_free(&mnt_id_ida, mnt->mnt_id);
-+ }
-+ 
-+@@ -143,7 +201,20 @@ static void mnt_free_id(struct mount *mnt)
-+  */
-+ static int mnt_alloc_group_id(struct mount *mnt)
-+ {
-++#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
-++	int res;
-++
-++	// Check if mnt has sus mnt_id
-++	if (mnt->mnt_id >= DEFAULT_SUS_MNT_ID) {
-++		// If so, assign a sus mnt_group id DEFAULT_SUS_MNT_GROUP_ID from susfs_mnt_group_ida
-++		res = ida_alloc_min(&susfs_mnt_group_ida, DEFAULT_SUS_MNT_GROUP_ID, GFP_KERNEL);
-++		goto bypass_orig_flow;
-++	}
-++	res = ida_alloc_min(&mnt_group_ida, 1, GFP_KERNEL);
-++bypass_orig_flow:
-++#else
-+ 	int res = ida_alloc_min(&mnt_group_ida, 1, GFP_KERNEL);
-++#endif
-+ 
-+ 	if (res < 0)
-+ 		return res;
-+@@ -156,6 +227,15 @@ static int mnt_alloc_group_id(struct mount *mnt)
-+  */
-+ void mnt_release_group_id(struct mount *mnt)
-+ {
-++#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
-++	// If mnt->mnt_group_id >= DEFAULT_SUS_MNT_GROUP_ID, it means 'mnt' is also sus mount,
-++	// then we free the mnt->mnt_group_id from susfs_mnt_group_ida
-++	if (mnt->mnt_group_id >= DEFAULT_SUS_MNT_GROUP_ID) {
-++		ida_free(&susfs_mnt_group_ida, mnt->mnt_group_id);
-++		mnt->mnt_group_id = 0;
-++		return;
-++	}
-++#endif
-+ 	ida_free(&mnt_group_ida, mnt->mnt_group_id);
-+ 	mnt->mnt_group_id = 0;
-+ }
-+@@ -193,13 +273,31 @@ int mnt_get_count(struct mount *mnt)
++@@ -273,13 +353,31 @@ int mnt_get_count(struct mount *mnt)
 + #endif
 + }
 + 
@@ -572,7 +452,7 @@ diff -Nur /mnt/data/kernel-original/fs/namespace.c /mnt/data/kernel-patched/fs/n
 + 		if (err)
 + 			goto out_free_cache;
 + 
-+@@ -967,11 +1065,26 @@ struct vfsmount *vfs_create_mount(struct fs_context *fc)
++@@ -1047,11 +1145,26 @@ struct vfsmount *vfs_create_mount(struct fs_context *fc)
 + {
 + 	struct mount *mnt;
 + 	struct user_namespace *fs_userns;
@@ -599,7 +479,7 @@ diff -Nur /mnt/data/kernel-original/fs/namespace.c /mnt/data/kernel-patched/fs/n
 + 	if (!mnt)
 + 		return ERR_PTR(-ENOMEM);
 + 
-+@@ -1078,8 +1212,47 @@ static struct mount *clone_mnt(struct mount *old, struct dentry *root,
++@@ -1158,8 +1292,47 @@ static struct mount *clone_mnt(struct mount *old, struct dentry *root,
 + 	struct super_block *sb = old->mnt.mnt_sb;
 + 	struct mount *mnt;
 + 	int err;
@@ -648,179 +528,9 @@ diff -Nur /mnt/data/kernel-original/fs/namespace.c /mnt/data/kernel-patched/fs/n
 + 	if (!mnt)
 + 		return ERR_PTR(-ENOMEM);
 + 
-+@@ -1105,6 +1278,30 @@ static struct mount *clone_mnt(struct mount *old, struct dentry *root,
-+ 	mnt->mnt.mnt_root = dget(root);
-+ 	mnt->mnt_mountpoint = mnt->mnt.mnt_root;
-+ 	mnt->mnt_parent = mnt;
-++#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
-++	// - If caller process is zygote, then it is a normal mount, so we calculate the next available
-++	//   fake mnt_id for this mount, but there is one situation that the previous clone_mnt is not
-++	//   yet attached to the current mnt_ns during copy_tree() so that it will fail to calculate
-++	//   the correct fake mnt_id.
-++	// - Currently we have a tmep fix for this in copy_tree(), but maybe not reliable for other devices
-++	if (likely(is_current_zygote_domain) && !(flag & CL_COPY_MNT_NS)) {
-++		mnt_ns = current->nsproxy->mnt_ns;
-++		if (mnt_ns) {
-++			get_mnt_ns(mnt_ns);
-++			rcu_read_lock();
-++			mnt_id = list_first_entry(&mnt_ns->list, struct mount, mnt_list)->mnt_id;
-++			list_for_each_entry_rcu(m, &mnt_ns->list, mnt_list) {
-++				if (m->mnt_id < DEFAULT_SUS_MNT_ID) {
-++					mnt_id++;
-++				}
-++			}
-++			WRITE_ONCE(mnt->mnt.susfs_mnt_id_backup, READ_ONCE(mnt->mnt_id));
-++			WRITE_ONCE(mnt->mnt_id, READ_ONCE(mnt_id));
-++			rcu_read_unlock();
-++			put_mnt_ns(mnt_ns);
-++		}
-++	}
-++#endif
-+ 	lock_mount_hash();
-+ 	list_add_tail(&mnt->mnt_instance, &sb->s_mounts);
-+ 	unlock_mount_hash();
-+@@ -1854,6 +2051,9 @@ struct mount *copy_tree(struct mount *mnt, struct dentry *dentry,
-+ 					int flag)
-+ {
-+ 	struct mount *res, *p, *q, *r, *parent;
-++#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
-++	bool is_current_zygote_domain = susfs_is_current_zygote_domain();
-++#endif
-+ 
-+ 	if (!(flag & CL_COPY_UNBINDABLE) && IS_MNT_UNBINDABLE(mnt))
-+ 		return ERR_PTR(-EINVAL);
-+@@ -1870,6 +2070,9 @@ struct mount *copy_tree(struct mount *mnt, struct dentry *dentry,
-+ 	p = mnt;
-+ 	list_for_each_entry(r, &mnt->mnt_mounts, mnt_child) {
-+ 		struct mount *s;
-++#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
-++		int attach_mnt_count = 0;
-++#endif
-+ 		if (!is_subdir(r->mnt_mountpoint, dentry))
-+ 			continue;
-+ 
-+@@ -1899,6 +2102,15 @@ struct mount *copy_tree(struct mount *mnt, struct dentry *dentry,
-+ 			q = clone_mnt(p, p->mnt.mnt_root, flag);
-+ 			if (IS_ERR(q))
-+ 				goto out;
-++#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
-++			if (is_current_zygote_domain &&
-++				!(flag & CL_COPY_MNT_NS) &&
-++				q->mnt_id < DEFAULT_SUS_MNT_ID)
-++			{
-++				attach_mnt_count++;
-++				q->mnt_id += attach_mnt_count;
-++			}
-++#endif
-+ 			lock_mount_hash();
-+ 			list_add_tail(&q->mnt_list, &res->mnt_list);
-+ 			attach_mnt(q, parent, p->mnt_mp);
-+@@ -2432,6 +2644,27 @@ static int do_loopback(struct path *path, const char *old_name,
-+ 		umount_tree(mnt, UMOUNT_SYNC);
-+ 		unlock_mount_hash();
-+ 	}
-++#if defined(CONFIG_KSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT) || defined(CONFIG_KSU_SUSFS_AUTO_ADD_TRY_UMOUNT_FOR_BIND_MOUNT)
-++	// Check if bind mounted path should be hidden and umounted automatically.
-++	// And we target only process with ksu domain.
-++	if (susfs_is_current_ksu_domain()) {
-++#if defined(CONFIG_KSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT)
-++		if (susfs_is_auto_add_sus_bind_mount_enabled &&
-++				susfs_auto_add_sus_bind_mount(old_name, &old_path)) {
-++			goto orig_flow;
-++		}
-++#endif
-++#if defined(CONFIG_KSU_SUSFS_AUTO_ADD_TRY_UMOUNT_FOR_BIND_MOUNT)
-++		if (susfs_is_auto_add_try_umount_for_bind_mount_enabled) {
-++			susfs_auto_add_try_umount_for_bind_mount(path);
-++		}
-++#endif
-++	}
-++#if defined(CONFIG_KSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT)
-++orig_flow:
-++#endif
-++#endif // #if defined(CONFIG_KSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT) || defined(CONFIG_KSU_SUSFS_AUTO_ADD_TRY_UMOUNT_FOR_BIND_MOUNT)
-++
-+ out2:
-+ 	unlock_mount(mp);
-+ out:
-+@@ -3444,6 +3677,10 @@ struct mnt_namespace *copy_mnt_ns(unsigned long flags, struct mnt_namespace *ns,
-+ 	struct mount *old;
-+ 	struct mount *new;
-+ 	int copy_flags;
-++#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
-++	bool is_zygote_pid = susfs_is_current_zygote_domain();
-++	int last_entry_mnt_id = 0;
-++#endif
-+ 
-+ 	BUG_ON(!ns);
-+ 
-+@@ -3463,6 +3700,11 @@ struct mnt_namespace *copy_mnt_ns(unsigned long flags, struct mnt_namespace *ns,
-+ 	copy_flags = CL_COPY_UNBINDABLE | CL_EXPIRE;
-+ 	if (user_ns != ns->user_ns)
-+ 		copy_flags |= CL_SHARED_TO_SLAVE;
-++
-++#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
-++	// Always let clone_mnt() in copy_tree() know it is from copy_mnt_ns()
-++	copy_flags |= CL_COPY_MNT_NS;
-++#endif
-+ 	new = copy_tree(old, old->mnt.mnt_root, copy_flags);
-+ 	if (IS_ERR(new)) {
-+ 		namespace_unlock();
-+@@ -3823,6 +4090,13 @@ SYSCALL_DEFINE5(move_mount,
-+ 	path_put(&to_path);
-+ out_from:
-+ 	path_put(&from_path);
-++#ifdef CONFIG_KSU_SUSFS_AUTO_ADD_SUS_KSU_DEFAULT_MOUNT
-++	// For Legacy KSU mount scheme
-++	if (!ret && susfs_is_auto_add_sus_ksu_default_mount_enabled && susfs_is_current_ksu_domain()) {
-++		susfs_auto_add_sus_ksu_default_mount(to_pathname);
-++	}
-++#endif
-++
-+ 	return ret;
-+ }
-+ 
-+@@ -4695,3 +4969,37 @@ const struct proc_ns_operations mntns_operations = {
-+ 	.install	= mntns_install,
-+ 	.owner		= mntns_owner,
-+ };
-++
-++#ifdef CONFIG_KSU_SUSFS_TRY_UMOUNT
-++extern void susfs_try_umount_all(uid_t uid);
-++void susfs_run_try_umount_for_current_mnt_ns(void) {
-++	struct mount *mnt;
-++	struct mnt_namespace *mnt_ns;
-++
-++	mnt_ns = current->nsproxy->mnt_ns;
-++	// Lock the namespace
-++	namespace_lock();
-++	list_for_each_entry(mnt, &mnt_ns->list, mnt_list) {
-++		// Change the sus mount to be private
-++		if (mnt->mnt_id >= DEFAULT_SUS_MNT_ID) {
-++			change_mnt_propagation(mnt, MS_PRIVATE);
-++		}
-++	}
-++	// Unlock the namespace
-++	namespace_unlock();
-++	susfs_try_umount_all(current_uid().val);
-++}
-++#endif
-++#ifdef CONFIG_KSU_SUSFS
-++bool susfs_is_mnt_devname_ksu(struct path *path) {
-++	struct mount *mnt;
-++
-++	if (path && path->mnt) {
-++		mnt = real_mount(path->mnt);
-++		if (mnt && mnt->mnt_devname && !strcmp(mnt->mnt_devname, "KSU")) {
-++			return true;
-++		}
-++	}
-++	return false;
-++}
-++#endif
-diff -Nur /mnt/data/kernel-original/fs/notify/fdinfo.c /mnt/data/kernel-patched/fs/notify/fdinfo.c
---- /mnt/data/kernel-original/fs/notify/fdinfo.c	2025-06-02 08:25:21.322656256 +0000
-+++ /mnt/data/kernel-patched/fs/notify/fdinfo.c	2025-06-02 08:25:21.322399176 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/notify/fdinfo.c /mnt/data/kernel-patched-2/fs/notify/fdinfo.c
+--- /mnt/data/kernel-original-2/fs/notify/fdinfo.c	2025-06-02 09:31:22.603801541 +0000
++++ /mnt/data/kernel-patched-2/fs/notify/fdinfo.c	2025-06-02 09:31:22.603405428 +0000
 @@ -0,0 +1,89 @@
 +--- fs/notify/fdinfo.c
 ++++ fs/notify/fdinfo.c
@@ -911,9 +621,9 @@ diff -Nur /mnt/data/kernel-original/fs/notify/fdinfo.c /mnt/data/kernel-patched/
 + 		seq_printf(m, "inotify wd:%x ino:%lx sdev:%x mask:%x ignored_mask:0 ",
 + 			   inode_mark->wd, inode->i_ino, inode->i_sb->s_dev,
 + 			   inotify_mark_user_mask(mark));
-diff -Nur /mnt/data/kernel-original/fs/open.c /mnt/data/kernel-patched/fs/open.c
---- /mnt/data/kernel-original/fs/open.c	2025-06-02 08:25:21.313301085 +0000
-+++ /mnt/data/kernel-patched/fs/open.c	2025-06-02 08:25:21.313026607 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/open.c /mnt/data/kernel-patched-2/fs/open.c
+--- /mnt/data/kernel-original-2/fs/open.c	2025-06-02 09:31:22.596424019 +0000
++++ /mnt/data/kernel-patched-2/fs/open.c	2025-06-02 09:31:22.596209757 +0000
 @@ -0,0 +1,28 @@
 +--- fs/open.c
 ++++ fs/open.c
@@ -943,9 +653,9 @@ diff -Nur /mnt/data/kernel-original/fs/open.c /mnt/data/kernel-patched/fs/open.c
 + 	if (mode & ~S_IRWXO)	/* where's F_OK, X_OK, W_OK, R_OK? */
 + 		return -EINVAL;
 + 
-diff -Nur /mnt/data/kernel-original/fs/overlayfs/inode.c /mnt/data/kernel-patched/fs/overlayfs/inode.c
---- /mnt/data/kernel-original/fs/overlayfs/inode.c	2025-06-02 08:25:21.323379262 +0000
-+++ /mnt/data/kernel-patched/fs/overlayfs/inode.c	2025-06-02 08:25:21.323072399 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/overlayfs/inode.c /mnt/data/kernel-patched-2/fs/overlayfs/inode.c
+--- /mnt/data/kernel-original-2/fs/overlayfs/inode.c	2025-06-02 09:31:22.604556888 +0000
++++ /mnt/data/kernel-patched-2/fs/overlayfs/inode.c	2025-06-02 09:31:22.604249221 +0000
 @@ -0,0 +1,24 @@
 +--- fs/overlayfs/inode.c
 ++++ fs/overlayfs/inode.c
@@ -971,9 +681,9 @@ diff -Nur /mnt/data/kernel-original/fs/overlayfs/inode.c /mnt/data/kernel-patche
 + 	type = ovl_path_real(dentry, &realpath);
 + 	old_cred = ovl_override_creds(dentry->d_sb);
 + 	err = vfs_getattr(&realpath, stat, request_mask, flags);
-diff -Nur /mnt/data/kernel-original/fs/overlayfs/readdir.c /mnt/data/kernel-patched/fs/overlayfs/readdir.c
---- /mnt/data/kernel-original/fs/overlayfs/readdir.c	2025-06-02 08:25:21.325684228 +0000
-+++ /mnt/data/kernel-patched/fs/overlayfs/readdir.c	2025-06-02 08:25:21.323708862 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/overlayfs/readdir.c /mnt/data/kernel-patched-2/fs/overlayfs/readdir.c
+--- /mnt/data/kernel-original-2/fs/overlayfs/readdir.c	2025-06-02 09:31:22.605355643 +0000
++++ /mnt/data/kernel-patched-2/fs/overlayfs/readdir.c	2025-06-02 09:31:22.604951909 +0000
 @@ -0,0 +1,22 @@
 +--- fs/overlayfs/readdir.c
 ++++ fs/overlayfs/readdir.c
@@ -997,9 +707,9 @@ diff -Nur /mnt/data/kernel-original/fs/overlayfs/readdir.c /mnt/data/kernel-patc
 + 	realfile = ovl_dir_open_realfile(file, &realpath);
 + 	if (IS_ERR(realfile)) {
 + 		kfree(od);
-diff -Nur /mnt/data/kernel-original/fs/overlayfs/super.c /mnt/data/kernel-patched/fs/overlayfs/super.c
---- /mnt/data/kernel-original/fs/overlayfs/super.c	2025-06-02 08:25:21.326495016 +0000
-+++ /mnt/data/kernel-patched/fs/overlayfs/super.c	2025-06-02 08:25:21.326068461 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/overlayfs/super.c /mnt/data/kernel-patched-2/fs/overlayfs/super.c
+--- /mnt/data/kernel-original-2/fs/overlayfs/super.c	2025-06-02 09:31:22.606980614 +0000
++++ /mnt/data/kernel-patched-2/fs/overlayfs/super.c	2025-06-02 09:31:22.605814747 +0000
 @@ -0,0 +1,21 @@
 +--- fs/overlayfs/super.c
 ++++ fs/overlayfs/super.c
@@ -1022,9 +732,9 @@ diff -Nur /mnt/data/kernel-original/fs/overlayfs/super.c /mnt/data/kernel-patche
 + 	ovl_path_real(root_dentry, &path);
 + 
 + 	err = vfs_statfs(&path, buf);
-diff -Nur /mnt/data/kernel-original/fs/proc/bootconfig.c /mnt/data/kernel-patched/fs/proc/bootconfig.c
---- /mnt/data/kernel-original/fs/proc/bootconfig.c	2025-06-02 08:25:21.327331643 +0000
-+++ /mnt/data/kernel-patched/fs/proc/bootconfig.c	2025-06-02 08:25:21.326947647 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/proc/bootconfig.c /mnt/data/kernel-patched-2/fs/proc/bootconfig.c
+--- /mnt/data/kernel-original-2/fs/proc/bootconfig.c	2025-06-02 09:31:22.611133401 +0000
++++ /mnt/data/kernel-patched-2/fs/proc/bootconfig.c	2025-06-02 09:31:22.609026976 +0000
 @@ -0,0 +1,22 @@
 +--- fs/proc/bootconfig.c
 ++++ fs/proc/bootconfig.c
@@ -1048,9 +758,9 @@ diff -Nur /mnt/data/kernel-original/fs/proc/bootconfig.c /mnt/data/kernel-patche
 + 	if (saved_boot_config)
 + 		seq_puts(m, saved_boot_config);
 + 	return 0;
-diff -Nur /mnt/data/kernel-original/fs/proc/fd.c /mnt/data/kernel-patched/fs/proc/fd.c
---- /mnt/data/kernel-original/fs/proc/fd.c	2025-06-02 08:25:21.328122331 +0000
-+++ /mnt/data/kernel-patched/fs/proc/fd.c	2025-06-02 08:25:21.327793498 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/proc/fd.c /mnt/data/kernel-patched-2/fs/proc/fd.c
+--- /mnt/data/kernel-original-2/fs/proc/fd.c	2025-06-02 09:31:22.612182306 +0000
++++ /mnt/data/kernel-patched-2/fs/proc/fd.c	2025-06-02 09:31:22.611745925 +0000
 @@ -0,0 +1,71 @@
 +--- fs/proc/fd.c
 ++++ fs/proc/fd.c
@@ -1123,9 +833,9 @@ diff -Nur /mnt/data/kernel-original/fs/proc/fd.c /mnt/data/kernel-patched/fs/pro
 + 
 + 	/* show_fd_locks() never deferences files so a stale value is safe */
 + 	show_fd_locks(m, file, files);
-diff -Nur /mnt/data/kernel-original/fs/proc/task_mmu.c /mnt/data/kernel-patched/fs/proc/task_mmu.c
---- /mnt/data/kernel-original/fs/proc/task_mmu.c	2025-06-02 08:25:21.329220053 +0000
-+++ /mnt/data/kernel-patched/fs/proc/task_mmu.c	2025-06-02 08:25:21.328536538 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/proc/task_mmu.c /mnt/data/kernel-patched-2/fs/proc/task_mmu.c
+--- /mnt/data/kernel-original-2/fs/proc/task_mmu.c	2025-06-02 09:31:22.613231026 +0000
++++ /mnt/data/kernel-patched-2/fs/proc/task_mmu.c	2025-06-02 09:31:22.612769896 +0000
 @@ -0,0 +1,41 @@
 +--- fs/proc/task_mmu.c
 ++++ fs/proc/task_mmu.c
@@ -1168,9 +878,9 @@ diff -Nur /mnt/data/kernel-original/fs/proc/task_mmu.c /mnt/data/kernel-patched/
 + 		pgoff = ((loff_t)vma->vm_pgoff) << PAGE_SHIFT;
 + 	}
 + 
-diff -Nur /mnt/data/kernel-original/fs/proc_namespace.c /mnt/data/kernel-patched/fs/proc_namespace.c
---- /mnt/data/kernel-original/fs/proc_namespace.c	2025-06-02 08:25:21.314619680 +0000
-+++ /mnt/data/kernel-patched/fs/proc_namespace.c	2025-06-02 08:25:21.314256021 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/proc_namespace.c /mnt/data/kernel-patched-2/fs/proc_namespace.c
+--- /mnt/data/kernel-original-2/fs/proc_namespace.c	2025-06-02 09:31:22.597537116 +0000
++++ /mnt/data/kernel-patched-2/fs/proc_namespace.c	2025-06-02 09:31:22.597325093 +0000
 @@ -0,0 +1,47 @@
 +--- fs/proc_namespace.c
 ++++ fs/proc_namespace.c
@@ -1219,9 +929,9 @@ diff -Nur /mnt/data/kernel-original/fs/proc_namespace.c /mnt/data/kernel-patched
 + 	/* device */
 + 	if (sb->s_op->show_devname) {
 + 		seq_puts(m, "device ");
-diff -Nur /mnt/data/kernel-original/fs/readdir.c /mnt/data/kernel-patched/fs/readdir.c
---- /mnt/data/kernel-original/fs/readdir.c	2025-06-02 08:25:21.317135063 +0000
-+++ /mnt/data/kernel-patched/fs/readdir.c	2025-06-02 08:25:21.315708112 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/readdir.c /mnt/data/kernel-patched-2/fs/readdir.c
+--- /mnt/data/kernel-original-2/fs/readdir.c	2025-06-02 09:31:22.598683996 +0000
++++ /mnt/data/kernel-patched-2/fs/readdir.c	2025-06-02 09:31:22.598341302 +0000
 @@ -0,0 +1,66 @@
 +--- fs/readdir.c
 ++++ fs/readdir.c
@@ -1289,9 +999,9 @@ diff -Nur /mnt/data/kernel-original/fs/readdir.c /mnt/data/kernel-patched/fs/rea
 + 	buf->error = verify_dirent_name(name, namlen);
 + 	if (unlikely(buf->error))
 + 		return buf->error;
-diff -Nur /mnt/data/kernel-original/fs/stat.c /mnt/data/kernel-patched/fs/stat.c
---- /mnt/data/kernel-original/fs/stat.c	2025-06-02 08:25:21.319009339 +0000
-+++ /mnt/data/kernel-patched/fs/stat.c	2025-06-02 08:25:21.318589193 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/stat.c /mnt/data/kernel-patched-2/fs/stat.c
+--- /mnt/data/kernel-original-2/fs/stat.c	2025-06-02 09:31:22.601193901 +0000
++++ /mnt/data/kernel-patched-2/fs/stat.c	2025-06-02 09:31:22.599537282 +0000
 @@ -0,0 +1,85 @@
 +--- fs/stat.c
 ++++ fs/stat.c
@@ -1378,9 +1088,9 @@ diff -Nur /mnt/data/kernel-original/fs/stat.c /mnt/data/kernel-patched/fs/stat.c
 + 	stat->result_mask |= STATX_MNT_ID;
 + 	if (path.mnt->mnt_root == path.dentry)
 + 		stat->attributes |= STATX_ATTR_MOUNT_ROOT;
-diff -Nur /mnt/data/kernel-original/fs/statfs.c /mnt/data/kernel-patched/fs/statfs.c
---- /mnt/data/kernel-original/fs/statfs.c	2025-06-02 08:25:21.321203812 +0000
-+++ /mnt/data/kernel-patched/fs/statfs.c	2025-06-02 08:25:21.320608290 +0000
+diff -Nur /mnt/data/kernel-original-2/fs/statfs.c /mnt/data/kernel-patched-2/fs/statfs.c
+--- /mnt/data/kernel-original-2/fs/statfs.c	2025-06-02 09:31:22.602083648 +0000
++++ /mnt/data/kernel-patched-2/fs/statfs.c	2025-06-02 09:31:22.601745130 +0000
 @@ -0,0 +1,85 @@
 +--- fs/statfs.c
 ++++ fs/statfs.c
@@ -1467,9 +1177,9 @@ diff -Nur /mnt/data/kernel-original/fs/statfs.c /mnt/data/kernel-patched/fs/stat
 + 	err = statfs_by_dentry(s->s_root, sbuf);
 + 	drop_super(s);
 + 	return err;
-diff -Nur /mnt/data/kernel-original/include/linux/mount.h /mnt/data/kernel-patched/include/linux/mount.h
---- /mnt/data/kernel-original/include/linux/mount.h	2025-06-02 08:25:21.330249432 +0000
-+++ /mnt/data/kernel-patched/include/linux/mount.h	2025-06-02 08:25:21.329999693 +0000
+diff -Nur /mnt/data/kernel-original-2/include/linux/mount.h /mnt/data/kernel-patched-2/include/linux/mount.h
+--- /mnt/data/kernel-original-2/include/linux/mount.h	2025-06-02 09:31:22.614112510 +0000
++++ /mnt/data/kernel-patched-2/include/linux/mount.h	2025-06-02 09:31:22.613680926 +0000
 @@ -0,0 +1,14 @@
 +--- include/linux/mount.h
 ++++ include/linux/mount.h
@@ -1485,9 +1195,9 @@ diff -Nur /mnt/data/kernel-original/include/linux/mount.h /mnt/data/kernel-patch
 + } __randomize_layout;
 + 
 + static inline struct user_namespace *mnt_user_ns(const struct vfsmount *mnt)
-diff -Nur /mnt/data/kernel-original/include/linux/sched.h /mnt/data/kernel-patched/include/linux/sched.h
---- /mnt/data/kernel-original/include/linux/sched.h	2025-06-02 08:25:21.331131682 +0000
-+++ /mnt/data/kernel-patched/include/linux/sched.h	2025-06-02 08:25:21.330575248 +0000
+diff -Nur /mnt/data/kernel-original-2/include/linux/sched.h /mnt/data/kernel-patched-2/include/linux/sched.h
+--- /mnt/data/kernel-original-2/include/linux/sched.h	2025-06-02 09:31:22.615367853 +0000
++++ /mnt/data/kernel-patched-2/include/linux/sched.h	2025-06-02 09:31:22.614869779 +0000
 @@ -0,0 +1,19 @@
 +--- include/linux/sched.h
 ++++ include/linux/sched.h
@@ -1508,9 +1218,9 @@ diff -Nur /mnt/data/kernel-original/include/linux/sched.h /mnt/data/kernel-patch
 + 
 + 	/*
 + 	 * New fields for task_struct should be added above here, so that
-diff -Nur /mnt/data/kernel-original/kernel/kallsyms.c /mnt/data/kernel-patched/kernel/kallsyms.c
---- /mnt/data/kernel-original/kernel/kallsyms.c	2025-06-02 08:25:21.335379291 +0000
-+++ /mnt/data/kernel-patched/kernel/kallsyms.c	2025-06-02 08:25:21.334218504 +0000
+diff -Nur /mnt/data/kernel-original-2/kernel/kallsyms.c /mnt/data/kernel-patched-2/kernel/kallsyms.c
+--- /mnt/data/kernel-original-2/kernel/kallsyms.c	2025-06-02 09:31:22.616601273 +0000
++++ /mnt/data/kernel-patched-2/kernel/kallsyms.c	2025-06-02 09:31:22.616136224 +0000
 @@ -0,0 +1,21 @@
 +--- kernel/kallsyms.c
 ++++ kernel/kallsyms.c
@@ -1533,9 +1243,9 @@ diff -Nur /mnt/data/kernel-original/kernel/kallsyms.c /mnt/data/kernel-patched/k
 + 	return 0;
 + }
 + 
-diff -Nur /mnt/data/kernel-original/kernel/sys.c /mnt/data/kernel-patched/kernel/sys.c
---- /mnt/data/kernel-original/kernel/sys.c	2025-06-02 08:25:21.336074836 +0000
-+++ /mnt/data/kernel-patched/kernel/sys.c	2025-06-02 08:25:21.335741381 +0000
+diff -Nur /mnt/data/kernel-original-2/kernel/sys.c /mnt/data/kernel-patched-2/kernel/sys.c
+--- /mnt/data/kernel-original-2/kernel/sys.c	2025-06-02 09:31:22.620443045 +0000
++++ /mnt/data/kernel-patched-2/kernel/sys.c	2025-06-02 09:31:22.617118205 +0000
 @@ -0,0 +1,21 @@
 +--- kernel/sys.c
 ++++ kernel/sys.c
