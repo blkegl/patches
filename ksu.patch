@@ -1,5 +1,5 @@
---- a/KernelSU/Makefile
-+++ b/KernelSU/Makefile
+--- a/KernelSU-Next/Makefile
++++ b/KernelSU-Next/Makefile
 @@ -40,5 +40,5 @@
  endif
  
