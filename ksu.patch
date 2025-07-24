@@ -1,45 +1,9 @@
---- a/KernelSU/kernel/core_hook.c
-+++ b/KernelSU/kernel/core_hook.c
-@@ -1150,16 +1697,22 @@ int ksu_handle_setuid(struct cred *new, const struct cred *old)
- 		current->pid);
- #endif
+--- a/KernelSU/Makefile
++++ b/KernelSU/Makefile
+@@ -40,5 +40,5 @@
+ endif
  
-+#ifdef CONFIG_KSU_SUSFS_TRY_UMOUNT
-+out_susfs_try_umount_all:
-+	// susfs come first, and lastly umount by ksu, make sure umount in reversed order
-+	susfs_try_umount_all(new_uid.val);
-+#else
- 	// fixme: use `collect_mounts` and `iterate_mount` to iterate all mountpoint and
- 	// filter the mountpoint whose target is `/data/adb`
--	try_umount("/system", true, 0);
--	try_umount("/vendor", true, 0);
--	try_umount("/product", true, 0);
--	try_umount("/system_ext", true, 0);
--	try_umount("/data/adb/modules", false, MNT_DETACH);
-+	ksu_try_umount("/system", true, 0);
-+	ksu_try_umount("/vendor", true, 0);
-+	ksu_try_umount("/product", true, 0);
-+	ksu_try_umount("/system_ext", true, 0);
-+	ksu_try_umount("/data/adb/modules", false, MNT_DETACH);
- 
- 	// try umount ksu temp path
--	try_umount("/debug_ramdisk", false, MNT_DETACH);
-+#endif
-+	ksu_try_umount("/debug_ramdisk", false, MNT_DETACH);
- 
- 	return 0;
- }
---- a/KernelSU/kernel/selinux/rules.c
-+++ b/KernelSU/kernel/selinux/rules.c
-@@ -24,9 +24,9 @@ static struct policydb *get_policydb(void)
- 	return db;
- }
- 
--void apply_kernelsu_rules()
-+void ksu_apply_kernelsu_rules()
- {
--	if (!getenforce()) {
-+	if (!ksu_getenforce()) {
- 		pr_info("SELinux permissive or disabled, apply rules!\n");
- 	}
- }
+ ifndef KSU_EXPECTED_HASH
+-KSU_EXPECTED_HASH := c371061b19d8c7d7d6133c6a9bafe198fa944e50c1b31c9d8daa8d7f1fc2d2d6
++KSU_EXPECTED_HASH := 7e0c6d7278a3bb8e364e0fcba95afaf3666cf5ff3c245a3b63c8833bd0445cc4
+ endif
